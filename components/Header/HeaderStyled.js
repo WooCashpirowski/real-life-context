@@ -4,7 +4,7 @@ const Navbar = styled.header`
   position: fixed;
   z-index: 100;
   width: 100vw;
-  div:first-child {
+  .barWrapper {
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@ const Navbar = styled.header`
     text-transform: uppercase;
     font-family: 'Amatic SC', cursive;
     transition: all 0.5s ease;
-    nav {
+    nav.desktopNav {
       ul {
         list-style: none;
         display: flex;
@@ -44,9 +44,26 @@ const Navbar = styled.header`
       height: 82px;
       transition: all 0.5s ease;
     }
+    .switcherWrapper {
+      background: ${({ theme }) => theme.colors.darkBlue};
+    }
+    .burgerMenu {
+      display: none;
+    }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      padding: 0 1rem;
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      nav.desktopNav {
+        display: none;
+      }
+      .switcherWrapper {
+        visibility: hidden;
+      }
+    }
   }
   &.shrink {
-    div:first-child {
+    .barWrapper {
       background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       nav {

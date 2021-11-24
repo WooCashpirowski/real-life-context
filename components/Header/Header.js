@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
-import useTranslation from 'next-translate/useTranslation'
 import LangSwitcher from './LangSwitcher/LangSwitcher'
 import Image from 'next/image'
 import { Link as ScrollLink } from 'react-scroll'
 import Navbar from './HeaderStyled'
+import NavLinks from './NavLinks/NavLinks'
+import BurgerNav from './BurgerNav/BurgerNav'
+import Sidebar from './Sidebar/Sidebar'
 
 const Header = () => {
-  let { t } = useTranslation()
-
   const [isTop, setIsTop] = useState(true)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {
@@ -22,19 +23,9 @@ const Header = () => {
   }, [isTop])
   return (
     <Navbar className={isTop ? '' : 'shrink'}>
-      <div>
-        <nav>
-          <ul>
-            <ScrollLink to="about" smooth>
-              <li>{t('home:header.about')}</li>
-            </ScrollLink>
-            <ScrollLink to="outputs" smooth>
-              <li>{t('home:header.outputs')}</li>
-            </ScrollLink>
-            <ScrollLink to="partners" smooth>
-              <li>{t('home:header.partners')}</li>
-            </ScrollLink>
-          </ul>
+      <div className="barWrapper">
+        <nav className="desktopNav">
+          <NavLinks />
         </nav>
         <div className="logo">
           <ScrollLink to="hero" smooth>
@@ -46,7 +37,11 @@ const Header = () => {
             />
           </ScrollLink>
         </div>
-        <LangSwitcher />
+        <div className="switcherWrapper">
+          <LangSwitcher />
+        </div>
+        <BurgerNav isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+        <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
       </div>
     </Navbar>
   )

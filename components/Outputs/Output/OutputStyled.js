@@ -23,4 +23,18 @@ export default styled.div`
       margin-bottom: 1rem;
     }
   }
+  @media (max-width: 480px) {
+    position: relative;
+    .imageWrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      opacity: 0.3;
+    }
+    .outputInfo {
+      z-index: 1;
+    }
+  }
 `
