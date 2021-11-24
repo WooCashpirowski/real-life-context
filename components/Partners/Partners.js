@@ -9,8 +9,6 @@ const Partners = ({ locale, partners }) => {
   const LURS = _.get(partners, `${locale}LURS`)
   const partnersData = [EF, ELS, LURS]
 
-  console.log(EF)
-
   return (
     <PartnersStyled id="partners">
       <h1 className="heading">{heading}</h1>
