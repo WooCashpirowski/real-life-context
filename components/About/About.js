@@ -10,6 +10,7 @@ const About = ({ locale, about }) => {
       fields: { file: image },
     },
   } = about
+
   return (
     <AboutStyled id="about">
       <h1 className="heading">

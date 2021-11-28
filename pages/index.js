@@ -9,13 +9,7 @@ import Footer from '../components/Footer/Footer'
 import Partners from '../components/Partners/Partners'
 
 export default function Home(props) {
-  const {
-    hero: { fields: hero },
-    about: { fields: about },
-    outputs: { fields: outputs },
-    partners: { fields: partners },
-    footer: { fields: footer },
-  } = props
+  const { hero, about, outputs, partners, footer } = props
   const { locale } = useRouter()
 
   return (
@@ -44,14 +38,28 @@ export async function getStaticProps() {
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   })
-  const res = await client.getEntries()
+  const heroRes = await client.getEntries({
+    content_type: 'hero',
+  })
+  const aboutRes = await client.getEntries({
+    content_type: 'about',
+  })
+  const outputsRes = await client.getEntries({
+    content_type: 'outputs',
+  })
+  const partnersRes = await client.getEntries({
+    content_type: 'partners',
+  })
+  const footerRes = await client.getEntries({
+    content_type: 'footer',
+  })
   return {
     props: {
-      hero: res.items.find((item) => item.fields.id === 'hero'),
-      outputs: res.items.find((item) => item.fields.id === 'outputs'),
-      partners: res.items.find((item) => item.fields.id === 'partners'),
-      footer: res.items.find((item) => item.fields.id === 'footer'),
-      about: res.items.find((item) => item.fields.id === 'about'),
+      hero: heroRes.items[0].fields,
+      about: aboutRes.items[0].fields,
+      outputs: outputsRes.items[0].fields,
+      partners: partnersRes.items[0].fields,
+      footer: footerRes.items[0].fields,
     },
   }
 }

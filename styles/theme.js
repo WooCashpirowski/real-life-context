@@ -10,4 +10,5 @@ export const theme = {
     secondary: 'Montserrat, sans-serif',
   },
   mobile: '768px',
+  phone: '480px',
 }

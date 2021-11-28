@@ -5,11 +5,17 @@ import Button from '../Button/Button'
 
 const Hero = ({ hero }) => {
   const {
-    erasmusIcon: {
-      fields: { file: erasmusIcon },
+    bg: {
+      fields: { file: bg },
+    },
+    thumb: {
+      fields: { file: thumb },
     },
     title: {
       fields: { file: title },
+    },
+    erasmusIcon: {
+      fields: { file: erasmusIcon },
     },
     slogan,
   } = hero
@@ -17,12 +23,12 @@ const Hero = ({ hero }) => {
   return (
     <HeroStyled id="hero">
       <Image
-        src="/img/hero.jpg"
+        src={`https:${bg.url}`}
         alt="hero background"
         layout="fill"
         objectFit="cover"
         placeholder="blur"
-        blurDataURL="/img/hero-thumb.jpg"
+        blurDataURL={`https:${thumb.url}`}
       />
       <div className="titleWrapper">
         <Image
