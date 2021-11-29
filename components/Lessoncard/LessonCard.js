@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Button from '../Button/Button'
 
 const LessonCard = ({ lesson, module }) => {
-  console.log(lesson)
   return (
     <Card>
       <Link href={`/platform/${module.fields.slug}/${lesson.slug}`}>
