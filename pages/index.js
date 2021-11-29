@@ -61,5 +61,6 @@ export async function getStaticProps() {
       partners: partnersRes.items[0].fields,
       footer: footerRes.items[0].fields,
     },
+    revalidate: 1,
   }
 }

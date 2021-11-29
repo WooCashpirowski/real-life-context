@@ -71,5 +71,6 @@ export async function getStaticProps({ params: { slug } }) {
 
   return {
     props: { module: items[0] },
+    revalidate: 1,
   }
 }

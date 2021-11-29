@@ -52,5 +52,6 @@ export async function getStaticProps() {
         (item) => item.fields.file.fileName === 'rlc-hero.png',
       )[0].fields.file,
     },
+    revalidate: 1,
   }
 }
