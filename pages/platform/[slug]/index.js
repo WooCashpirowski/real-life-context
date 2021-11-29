@@ -2,8 +2,11 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import Link from 'next/link'
 import Layout from '../../../components/Layout/Layout'
+import ModuleSkeleton from '../../../components/ModuleSkeleton/ModuleSkeleton'
 
 const ModulePage = ({ module }) => {
+  if (!module) return <ModuleSkeleton />
+
   const lessons = module.fields.lessons.content.filter(
     (item) => item.nodeType === 'embedded-entry-block',
   )
@@ -59,7 +62,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -68,6 +71,15 @@ export async function getStaticProps({ params: { slug } }) {
     content_type: 'module',
     'fields.slug': slug,
   })
+
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: '/platform',
+        permanent: false,
+      },
+    }
+  }
 
   return {
     props: { module: items[0] },
