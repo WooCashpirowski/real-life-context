@@ -14,26 +14,40 @@ const Partners = ({ locale, partners }) => {
       <h1 className="heading">{heading}</h1>
       <div className="accordionWrapper">
         {partnersData.map((partner) => {
-          const { content: item } = partner
+          const { content: items } = partner
+          const description = items
+            .filter((item) => item.nodeType === 'paragraph')
+            .map((item) => item.content)
+            .map((item) => item[0])
+          const address = items.filter(
+            (item) => item.nodeType === 'unordered-list',
+          )[0]
+          const map = items.filter(
+            (item) => item.nodeType === 'embedded-entry-block',
+          )[0].data.target
           return (
             <Accordion
-              title={item[0].content[0].value}
-              key={item[0].content[0].value}
+              title={items[0].content[0].value}
+              key={items[0].content[0].value}
             >
               <div className="card" style={{ display: 'flex' }}>
                 <div className="desc">
-                  <p>{item[1].content[0].value}</p>
+                  {description.map((paragraph, i) => (
+                    <p key={i} style={{ padding: '0.5rem 0' }}>
+                      {paragraph.value}
+                    </p>
+                  ))}
                 </div>
                 <div className="address">
                   <ul>
-                    {item[2].content.map((line, i) => (
+                    {address.content.map((line, i) => (
                       <li key={i}>{line.content[0].content[0].value}</li>
                     ))}
                   </ul>
                   <div
                     className="map"
                     dangerouslySetInnerHTML={{
-                      __html: `${item[3].content[0].value}`,
+                      __html: `${map.fields.iframe}`,
                     }}
                   ></div>
                 </div>
