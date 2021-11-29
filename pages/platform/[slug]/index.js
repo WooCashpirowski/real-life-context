@@ -1,8 +1,10 @@
 import { createClient } from 'contentful'
-import Image from 'next/image'
-import Link from 'next/link'
+import Button from '../../../components/Button/Button'
+import Flex from '../../../components/Flex/Flex'
 import Layout from '../../../components/Layout/Layout'
+import LessonCard from '../../../components/Lessoncard/LessonCard'
 import ModuleSkeleton from '../../../components/ModuleSkeleton/ModuleSkeleton'
+import Subsection from '../../../components/Subsection/Subsection'
 
 const ModulePage = ({ module }) => {
   if (!module) return <ModuleSkeleton />
@@ -13,31 +15,24 @@ const ModulePage = ({ module }) => {
 
   return (
     <Layout path="/platform">
-      <h1>{module.fields.title}</h1>
-      <h2>{module.fields.desc}</h2>
-      {lessons.map((lesson, i) => {
-        const {
-          data: {
-            target: { fields },
-          },
-        } = lesson
-        return (
-          <Link
-            href={`/platform/${module.fields.slug}/${fields.slug}`}
-            key={fields.id}
-          >
-            <a>
-              <h3>{fields.title}</h3>
-              <Image
-                src={`https:${fields.thumbnail.fields.file.url}`}
-                width={fields.thumbnail.fields.file.details.image.width}
-                height={fields.thumbnail.fields.file.details.image.height}
-                alt={fields.thumbnail.fields.title}
-              />
-            </a>
-          </Link>
-        )
-      })}
+      <h1 className="lessonHeading">
+        {module.fields.title} - {module.fields.desc}
+      </h1>
+      <Flex>
+        {lessons.map((lesson, i) => {
+          const {
+            data: {
+              target: { fields },
+            },
+          } = lesson
+          return <LessonCard key={fields.id} lesson={fields} module={module} />
+        })}
+      </Flex>
+      <Subsection>
+        <Button text={`table of contents`} disabled={true}>
+          <i className="fas fa-book-open"></i>
+        </Button>
+      </Subsection>
     </Layout>
   )
 }

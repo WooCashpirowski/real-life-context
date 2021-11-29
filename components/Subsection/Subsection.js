@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 
-const Subsection = ({ image, children }) => {
+const Subsection = ({ children }) => {
   return (
     <Section>
       <div className="imageWrapper">
         <Image
-          src={`https:${image.url}`}
-          width={image.details.image.width}
-          height={image.details.image.height}
-          alt={image.fieldName}
+          src="/img/rlc.png"
+          width={987}
+          height={139}
+          alt="real life context hero sign"
         />
       </div>
       <div className="links">{children}</div>
@@ -58,8 +58,14 @@ const Section = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column-reverse;
     justify-content: center;
+    margin-top: 3rem;
     .links {
       margin-bottom: 2rem;
+      align-items: center;
+      button,
+      a {
+        margin: 0.5rem;
+      }
     }
   }
 `
