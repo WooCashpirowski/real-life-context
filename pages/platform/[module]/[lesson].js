@@ -1,10 +1,15 @@
 import { createClient } from 'contentful'
 
 const LessonPage = ({ lesson }) => {
+  console.log(lesson)
   return (
     <div>
-      <h1>{lesson.fields.section}</h1>
-      <h2>{lesson.fields.title}</h2>
+      {!!lesson && (
+        <>
+          <h1>{lesson.fields.section}</h1>
+          <h2>{lesson.fields.title}</h2>
+        </>
+      )}
     </div>
   )
 }
