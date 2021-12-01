@@ -51,7 +51,7 @@ export async function getStaticPaths() {
 
   const paths = res.items.map((item) => {
     return {
-      params: { slug: item.fields.slug },
+      params: { module: item.fields.slug },
     }
   })
 
@@ -61,10 +61,10 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params: { module } }) {
   const { items } = await client.getEntries({
     content_type: 'module',
-    'fields.slug': slug,
+    'fields.slug': module,
   })
 
   if (!items.length) {

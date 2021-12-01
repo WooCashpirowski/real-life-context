@@ -53,6 +53,7 @@ export async function getStaticProps() {
   const footerRes = await client.getEntries({
     content_type: 'footer',
   })
+
   return {
     props: {
       hero: heroRes.items[0].fields,
