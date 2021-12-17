@@ -8,11 +8,7 @@ const LessonPage = ({ lesson }) => {
   const assets = lesson?.fields?.media?.content.filter(
     (asset) => asset.nodeType === 'embedded-entry-block',
   )
-  console.log(assets)
-
   const [activeContent, setActiveContent] = useState('')
-
-  console.log(activeContent)
 
   return (
     <>
