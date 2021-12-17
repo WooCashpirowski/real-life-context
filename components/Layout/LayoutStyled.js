@@ -16,7 +16,6 @@ export const MediaWrapper = styled.div`
     rgba(36, 153, 256, 0.65) 0%,
     rgba(182, 182, 182, 0) 100%
   );
-  padding: 4rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,8 +25,8 @@ export const MediaWrapper = styled.div`
     text-align: center;
     background: ${({ theme }) => theme.colors.blue};
     color: white;
-    padding: 1rem;
-    font-size: 2.5rem;
+    padding: 0.75rem;
+    font-size: 2.2rem;
     text-transform: uppercase;
     margin-bottom: 1rem;
   }

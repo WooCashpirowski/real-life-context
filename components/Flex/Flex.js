@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 export default styled.div`
   display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  max-width: 1200px;
+  width: 100%;
+  height: 100%;
 `

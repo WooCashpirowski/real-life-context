@@ -15,6 +15,8 @@ const LessonCard = ({ lesson, module }) => {
               layout="fill"
               objectFit="cover"
               alt={lesson.thumbnail.fields.title}
+              placeholder="blur"
+              blurDataURL={`https:${lesson.thumbnail.fields.file.url}`}
             />
           </div>
         </a>

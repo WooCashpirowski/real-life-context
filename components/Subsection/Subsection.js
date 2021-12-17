@@ -24,8 +24,8 @@ const Section = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1.5rem 0 0;
   height: 120px;
+  padding: 1rem 3rem;
   .imageWrapper {
     flex: 5;
   }

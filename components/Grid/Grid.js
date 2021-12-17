@@ -6,7 +6,8 @@ export default styled.div`
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 2rem;
   grid-row-gap: 3rem;
-  padding: 2rem 0;
+  padding: 2rem 3rem;
+
   @media (max-width: ${({ theme }) => theme.mobile}) {
     grid-template-columns: repeat(2, 1fr);
     grid-row-gap: 2rem;

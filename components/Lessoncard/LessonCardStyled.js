@@ -5,6 +5,7 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin: 1rem;
   .linkWrapper {
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -28,15 +29,15 @@ const Card = styled.div`
         #283b6c 0%,
         rgba(182, 182, 182, 0) 100%
       );
-      border-radius: 15px 15px 0 0;
     }
     img {
       height: 100%;
       transition: transform 0.5s ease;
     }
     &:hover {
-      transform: translateY(5%) scale(1.1);
+      transform: translateY(-5%) scale(1.1);
       box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
       img {
         transform: translateY(-5%) scale(1.1);
       }

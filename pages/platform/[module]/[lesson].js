@@ -1,13 +1,30 @@
 import { createClient } from 'contentful'
 
 const LessonPage = ({ lesson }) => {
-  console.log(lesson)
+  const assets = lesson.fields.media.content.filter(
+    (asset) => asset.nodeType === 'embedded-entry-block',
+  )
+  console.log(assets)
   return (
     <div>
       {!!lesson && (
         <>
           <h1>{lesson.fields.section}</h1>
           <h2>{lesson.fields.title}</h2>
+          {assets.map((item) => {
+            const {
+              data: {
+                target: {
+                  fields: { asset },
+                },
+              },
+            } = item
+            return (
+              <div key={item.data.target.sys.id}>
+                <iframe src={asset} />
+              </div>
+            )
+          })}
         </>
       )}
     </div>
