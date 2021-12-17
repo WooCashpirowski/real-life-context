@@ -1,14 +1,14 @@
 import { createClient } from 'contentful'
+import PropTypes from 'prop-types'
 
 const LessonPage = ({ lesson }) => {
   const assets = lesson?.fields?.media?.content.filter(
     (asset) => asset.nodeType === 'embedded-entry-block',
   )
-  // console.log(assets)
-  // console.log(lesson)
+  console.log(assets)
   return (
     <div>
-      {!!lesson && (
+      {!!lesson && !!assets && (
         <>
           <h1>{lesson.fields.section}</h1>
           <h2>{lesson.fields.title}</h2>
@@ -33,6 +33,14 @@ const LessonPage = ({ lesson }) => {
 }
 
 export default LessonPage
+
+LessonPage.defaultProps = {
+  lesson: null,
+}
+
+LessonPage.propTypes = {
+  lesson: PropTypes.shape,
+}
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
