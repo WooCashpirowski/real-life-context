@@ -1,7 +1,7 @@
 import { createClient } from 'contentful'
 
 const LessonPage = ({ lesson }) => {
-  const assets = lesson?.fields.media.content.filter(
+  const assets = lesson?.fields?.media?.content.filter(
     (asset) => asset.nodeType === 'embedded-entry-block',
   )
   // console.log(assets)
