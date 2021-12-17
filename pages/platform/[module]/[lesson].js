@@ -1,45 +1,62 @@
 import { createClient } from 'contentful'
 import PropTypes from 'prop-types'
+import { useState } from 'react'
+import Layout from '../../../components/Layout/Layout'
+import LessonWrapper from '../../../components/LessonWrapper/LessonWrapper'
 
 const LessonPage = ({ lesson }) => {
   const assets = lesson?.fields?.media?.content.filter(
     (asset) => asset.nodeType === 'embedded-entry-block',
   )
   console.log(assets)
+
+  const [activeContent, setActiveContent] = useState('')
+
+  console.log(activeContent)
+
   return (
-    <div>
+    <>
       {!!lesson && !!assets && (
-        <>
-          <h1>{lesson.fields.section}</h1>
-          <h2>{lesson.fields.title}</h2>
-          {assets.map((item) => {
-            const {
-              data: {
-                target: {
-                  fields: { asset },
-                },
-              },
-            } = item
-            return (
-              <div key={item.data.target.sys.id}>
-                <iframe src={asset} />
-              </div>
-            )
-          })}
-        </>
+        <Layout path={`/platform/${lesson.fields.section}`}>
+          <h1 className="lessonHeading">{lesson.fields.title}</h1>
+          <LessonWrapper>
+            <div className="buttons">
+              {assets.map((item) => (
+                <button
+                  data-id={item.data.target.fields.id}
+                  key={item.data.target.sys.id}
+                  onClick={() => setActiveContent(item.data.target.fields.id)}
+                  className={
+                    item.data.target.fields.id == activeContent && 'active'
+                  }
+                >
+                  {item.data.target.fields.id}
+                </button>
+              ))}
+            </div>
+            {assets.map((item) => (
+              <>
+                {item.data.target.fields.id == activeContent && (
+                  <div
+                    className="mediaWrapper"
+                    key={item.data.target.fields.id}
+                  >
+                    <iframe src={item.data.target.fields.asset} />
+                  </div>
+                )}
+              </>
+            ))}
+          </LessonWrapper>
+        </Layout>
       )}
-    </div>
+    </>
   )
 }
 
 export default LessonPage
 
-LessonPage.defaultProps = {
-  lesson: null,
-}
-
 LessonPage.propTypes = {
-  lesson: PropTypes.shape,
+  lesson: PropTypes.object,
 }
 
 const client = createClient({

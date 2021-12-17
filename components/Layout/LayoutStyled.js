@@ -28,6 +28,5 @@ export const MediaWrapper = styled.div`
     padding: 0.75rem;
     font-size: 2.2rem;
     text-transform: uppercase;
-    margin-bottom: 1rem;
   }
 `
