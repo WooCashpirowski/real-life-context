@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export default styled.section`
   padding: 2rem 0 2rem 3rem;
@@ -9,14 +9,15 @@ export default styled.section`
     align-items: flex-start;
     justify-content: space-between;
     position: relative;
+    min-height: 70vh;
     .text {
-      width: 50%;
+      width: 30%;
       padding-right: 2rem;
     }
     .image {
       position: absolute;
       top: -10%;
-      width: 50%;
+      width: 70%;
       height: 110%;
       right: 0;
       z-index: 0;
@@ -33,7 +34,8 @@ export default styled.section`
         );
       }
     }
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: 1000px) {
+      min-height: 50vh;
       .text {
         width: 100%;
         z-index: 1;
@@ -49,4 +51,4 @@ export default styled.section`
       }
     }
   }
-`
+`;
