@@ -1,10 +1,10 @@
-const ContentSecurityPolicy = `
-  default-src 'self';
-  script-src 'self';
-  child-src reallifecontext.eu;
-  style-src 'self' reallifecontext.eu;
-  font-src 'self';  
-`;
+// const ContentSecurityPolicy = `
+//   default-src 'self';
+//   script-src 'self';
+//   child-src 'none';
+//   style-src 'self';
+//   font-src 'self';
+// `;
 
 module.exports = [
 	{
@@ -35,8 +35,8 @@ module.exports = [
 		key: 'Permissions-Policy',
 		value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
 	},
-	{
-		key: 'Content-Security-Policy',
-		value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
-	},
+	// {
+	// 	key: 'Content-Security-Policy',
+	// 	value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
+	// },
 ];
