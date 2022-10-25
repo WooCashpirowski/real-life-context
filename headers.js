@@ -1,8 +1,8 @@
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self';
-  child-src example.com;
-  style-src 'self' example.com;
+  child-src reallifecontext.eu;
+  style-src 'self' reallifecontext.eu;
   font-src 'self';  
 `;
 
