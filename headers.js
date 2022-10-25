@@ -16,10 +16,6 @@ module.exports = [
 		value: 'max-age=63072000; includeSubDomains; preload',
 	},
 	{
-		key: 'Server',
-		value: 'Apache', // phony server value
-	},
-	{
 		key: 'X-Content-Type-Options',
 		value: 'nosniff',
 	},
@@ -33,11 +29,11 @@ module.exports = [
 	},
 	{
 		key: 'Referrer-Policy',
-		value: 'same-origin',
+		value: 'origin-when-cross-origin',
 	},
 	{
 		key: 'Permissions-Policy',
-		value: 'geolocation=*', // allow specified policies here
+		value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
 	},
 	{
 		key: 'Content-Security-Policy',
