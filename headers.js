@@ -1,3 +1,11 @@
+const ContentSecurityPolicy = `
+  default-src 'self';
+  script-src 'self';
+  child-src example.com;
+  style-src 'self' example.com;
+  font-src 'self';  
+`;
+
 module.exports = [
 	{
 		key: 'X-DNS-Prefetch-Control',
@@ -17,7 +25,7 @@ module.exports = [
 	},
 	{
 		key: 'X-Frame-Options',
-		value: 'sameorigin',
+		value: 'SAMEORIGIN',
 	},
 	{
 		key: 'X-XSS-Protection',
@@ -30,5 +38,9 @@ module.exports = [
 	{
 		key: 'Permissions-Policy',
 		value: 'geolocation=*', // allow specified policies here
+	},
+	{
+		key: 'Content-Security-Policy',
+		value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
 	},
 ];
