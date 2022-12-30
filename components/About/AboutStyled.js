@@ -11,8 +11,9 @@ export default styled.section`
 		justify-content: space-between;
 		min-height: 70vh;
 		.text {
-			width: 30%;
+			width: 35%;
 			padding-right: 2rem;
+			z-index: 1;
 		}
 		.image {
 			position: absolute;
