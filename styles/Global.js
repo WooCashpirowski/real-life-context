@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -17,6 +17,8 @@ const GlobalStyles = createGlobalStyle`
     font-size: 3rem;
     margin-bottom: 2rem;
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
   }
 
   .paragraph {
@@ -27,6 +29,6 @@ const GlobalStyles = createGlobalStyle`
     margin-bottom: 1rem;
   }
 
-`
+`;
 
-export default GlobalStyles
+export default GlobalStyles;

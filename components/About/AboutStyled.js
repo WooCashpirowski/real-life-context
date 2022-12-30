@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.section`
+	position: relative;
 	padding: 2rem 0 2rem 3rem;
 	color: white;
 	background: ${({ theme }) => theme.colors.darkBlue};
@@ -8,7 +9,6 @@ export default styled.section`
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		position: relative;
 		min-height: 70vh;
 		.text {
 			width: 30%;
@@ -16,9 +16,9 @@ export default styled.section`
 		}
 		.image {
 			position: absolute;
-			top: -10%;
+			top: 0;
 			width: 70%;
-			height: 110%;
+			height: 100%;
 			right: 0;
 			z-index: 0;
 			.overlay {
