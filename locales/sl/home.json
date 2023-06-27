@@ -1,7 +1,8 @@
 {
-  "header": {
-    "about": "O projektu",
-    "outputs": "Rezultati",
-    "partners": "Partnerjev"
-  }
+	"header": {
+		"about": "O projektu",
+		"outputs": "Rezultati",
+		"partners": "Partnerjev",
+		"platform": "Platforma"
+	}
 }

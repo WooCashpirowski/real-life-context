@@ -1,7 +1,8 @@
 {
-  "header": {
-    "about": "About",
-    "outputs": "Outputs",
-    "partners": "Partners"
-  }
+	"header": {
+		"about": "About",
+		"outputs": "Outputs",
+		"partners": "Partners",
+		"platform": "Platform"
+	}
 }
