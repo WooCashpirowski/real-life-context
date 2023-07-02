@@ -17,31 +17,37 @@ const LessonPage = ({ lesson }) => {
 					<h1 className='lessonHeading'>{lesson.fields.title}</h1>
 					<LessonWrapper>
 						<div className='buttons'>
-							{assets.map((item) => (
+							{assets.map((item, i) => (
 								<button
 									data-id={item.data.target.fields.id}
 									key={item.data.target.sys.id}
-									onClick={() => setActiveContent(item.data.target.fields.id)}
+									onClick={() =>
+										setActiveContent(
+											item.data.target.fields.id
+										)
+									}
 									className={
-										item.data.target.fields.id == activeContent && 'active'
+										item.data.target.fields.id ==
+										activeContent
+											? 'active'
+											: ''
 									}
 								>
-									{item.data.target.fields.id}
+									M0{i + 1}
 								</button>
 							))}
 						</div>
 						{assets.map((item) => (
 							<>
-								{item.data.target.fields.id == activeContent && (
+								{item.data.target.fields.id ==
+									activeContent && (
 									<div
-										className={
-											item.data.target.fields.asset.includes('ic-english.eu')
-												? 'quiz_media'
-												: 'media'
-										}
+										className='quiz_media'
 										key={item.data.target.fields.id}
 									>
-										<iframe src={item.data.target.fields.asset} />
+										<iframe
+											src={item.data.target.fields.asset}
+										/>
 									</div>
 								)}
 							</>
