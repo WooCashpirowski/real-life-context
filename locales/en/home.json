@@ -3,6 +3,10 @@
 		"about": "About",
 		"outputs": "Outputs",
 		"partners": "Partners",
-		"platform": "Platform"
+		"platform": "Platform",
+		"survey": "Let us know what you think"
+	},
+	"hero": {
+		"read-more": "Read more"
 	}
 }

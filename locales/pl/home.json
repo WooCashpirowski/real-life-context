@@ -3,6 +3,10 @@
 		"about": "O projekcie",
 		"outputs": "Rezultaty",
 		"partners": "Partnerzy",
-		"platform": "Platforma"
+		"platform": "Platforma",
+		"survey": "Oceń nas"
+	},
+	"hero": {
+		"read-more": "Czytaj więcej"
 	}
 }

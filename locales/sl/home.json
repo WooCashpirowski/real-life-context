@@ -3,6 +3,10 @@
 		"about": "O projektu",
 		"outputs": "Rezultati",
 		"partners": "Partnerjev",
-		"platform": "Platforma"
+		"platform": "Platforma",
+		"survey": "Ocenite nas"
+	},
+	"hero": {
+		"read-more": "Preberi več"
 	}
 }
