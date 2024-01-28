@@ -5,6 +5,8 @@ export default styled.div`
 	align-items: center;
 	justify-content: space-between;
 	transition: all 0.5s ease;
+	text-decoration: none;
+	color: inherit;
 	@media (max-width: ${({ theme }) => theme.mobile}) {
 		align-items: flex-start;
 	}

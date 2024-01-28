@@ -13,8 +13,14 @@ const Output = ({ output, link }) => {
 		(item) => item.nodeType !== 'embedded-asset-block'
 	);
 
+	const outputDownloadUrl = output.file?.url;
+
 	return (
-		<OutputStyled>
+		<OutputStyled
+			as={outputDownloadUrl ? 'a' : 'div'}
+			href={outputDownloadUrl ?? undefined}
+			target={outputDownloadUrl ? '_blank' : undefined}
+		>
 			<div className='imageWrapper'>
 				<Image
 					src={`https:${icon.fields.file.url}`}
